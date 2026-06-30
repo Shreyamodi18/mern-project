@@ -6,6 +6,7 @@ import { createServer } from "http";
 import { connectDB } from "./config/db.js";
 import authRoutes from "./routes/authRoutes.js";
 import workspaceRoutes from "./routes/workspaceRoutes.js";
+import projectRoutes from "./routes/projectRoutes.js";
 
 dotenv.config();
 
@@ -22,6 +23,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 app.use("/api/auth", authRoutes);
 app.use("/api/workspaces", workspaceRoutes);
+app.use("/api/projects", projectRoutes);
 
 // Health check
 app.get("/", (req, res) => {
