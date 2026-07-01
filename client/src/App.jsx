@@ -5,6 +5,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import WorkspacePage from "./pages/WorkspacePage";
+import BoardPage from "./pages/BoardPage";
 
 const ProtectedRoute = ({ children }) => {
   const { accessToken } = useSelector((state) => state.auth);
@@ -32,6 +33,14 @@ function App() {
           element={
             <ProtectedRoute>
               <WorkspacePage />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/project/:projectId"
+          element={
+            <ProtectedRoute>
+              <BoardPage />
             </ProtectedRoute>
           }
         />
